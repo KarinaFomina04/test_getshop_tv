@@ -3,11 +3,11 @@ import videoBg from '../../assets/video/videoBg.mp4'
 import s from './VideoBackground.module.scss'
 import { Banner } from '../Banner'
 
+
 export const VideoBackground = () => {
     const [showQrCode, setShowQrCode] = useState(false)
     const [isPlaying, setIsPlaying] = useState(true)
     const videoRef = useRef<HTMLVideoElement | null>(null)
-
 
     useEffect(() => {
         const timer = setTimeout(() => {

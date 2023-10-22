@@ -1,14 +1,17 @@
 .container {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   height: 100vh;
 }
+
+.blue {
+  background-color: #86D3F4;
+  width: 251px;
+  height: 357px;
+}
+
 .centeredContent {
-  flex-direction: column;
-  align-items: center;
   text-align: center;
-  margin-top: 20px;
 }
 
 .button {
@@ -35,10 +38,3 @@
   margin: 20px 0;
 }
 
-.blue {
-  background-color: #86D3F4;
-  width: 251px;
-  height: 357px;
-  color: black;
-  font-size: xx-small;
-}
