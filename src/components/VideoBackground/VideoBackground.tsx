@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import videoBg from '../../assets/video/videoBg.mp4'
 import s from './VideoBackground.module.scss'
-import { QrCode } from '../QrCode'
+import { Banner } from '../Banner'
 
 export const VideoBackground = () => {
     const [showQrCode, setShowQrCode] = useState(false);
@@ -18,7 +18,7 @@ export const VideoBackground = () => {
         <div className={s.videoBackground}>
             <video src={videoBg} autoPlay loop muted />
             <div className={s.content}>
-                {showQrCode && <QrCode />}
+                {showQrCode && <Banner />}
             </div>
         </div>
     );
