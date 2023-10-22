@@ -21,7 +21,13 @@ export const Banner = () => {
                         или нажмите ОК
                     </div>
                     <div className={s.button}>
-                        <Button label="OK" width="156px" height="52px" color="black"/>
+                        <Button
+                            label="OK"
+                            width="156px"
+                            height="52px"
+                            backgroundColor="black"
+                            color="#86D3F4"
+                        />
                     </div>
                 </div>
             </div>
