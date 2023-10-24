@@ -1,8 +1,9 @@
 import s from './Banner.module.scss'
 import { QrCodeFierst } from '../../assets/qrCode/QrCodeFierst.tsx'
 import { Button } from '../Button/Button.tsx'
+import {FC} from "react";
 
-export const Banner = () => {
+export const Banner:FC<any> = ({onClickOk}) => {
     return (
         <div className={s.container}>
             <div className={s.blue}>
@@ -27,6 +28,7 @@ export const Banner = () => {
                             height="52px"
                             backgroundColor="black"
                             color="#86D3F4"
+                            onClick={onClickOk}
                         />
                     </div>
                 </div>

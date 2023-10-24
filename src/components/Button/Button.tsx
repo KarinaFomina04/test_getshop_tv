@@ -7,6 +7,9 @@ type ButtonProps = {
     height?: string;
     backgroundColor?: string;
     color?: string;
+    onClick?: () => void;
+    disabled?: boolean
+    buttonRef?: any
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -14,7 +17,10 @@ export const Button: React.FC<ButtonProps> = ({
                                                   width,
                                                   height,
                                                   backgroundColor,
-                                                  color
+                                                  color,
+    onClick,
+    disabled,
+                                                  buttonRef
 }) => {
     const buttonStyle: React.CSSProperties = {
         width: width || 'auto',
@@ -24,7 +30,7 @@ export const Button: React.FC<ButtonProps> = ({
     };
 
     return (
-        <button style={buttonStyle}>
+        <button ref={buttonRef} disabled={disabled} autoFocus style={buttonStyle} onClick={onClick}>
             {label}
         </button>
     );

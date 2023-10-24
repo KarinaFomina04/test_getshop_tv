@@ -1,9 +1,7 @@
-import {useState} from 'react';
+import {FC} from 'react';
 import s from './InputPhone.module.scss';
 
-export const InputPhone = () => {
-    const [phoneNumber, setPhoneNumber] = useState('+7(___)___-__-__');
-
+export const InputPhone:FC<any> = ({phoneNumber, setPhoneNumber, digitRef}) => {
 
     const handleDigitClick = (digit: string) => {
         setPhoneNumber(phoneNumber.replace('_', digit))
@@ -17,7 +15,6 @@ export const InputPhone = () => {
                 setPhoneNumber(phoneNumber.slice(0, lastDigitIndex) + "_" + phoneNumber.slice(lastDigitIndex + 1));
             }
         }
-
     }
 
     const detectKeyDown = (e: any) => {
@@ -30,7 +27,7 @@ export const InputPhone = () => {
     }
 
     return (
-            <div className={s.inputPhone}>
+            <div className={s.inputPhone} onKeyDown={detectKeyDown}>
                 <div className={s.phone}>
                     {phoneNumber}
                 </div>
@@ -39,11 +36,12 @@ export const InputPhone = () => {
                     <br />
                     дальнейшей консультации
                 </div>
-                <div onKeyDown={detectKeyDown} className={s.buttonContainer}>
+                <div className={s.buttonContainer}>
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((digit) => (
                         <button
                             key={digit}
                             className={s.button}
+                            autoFocus={digit === 5}
                             onClick={() => handleDigitClick(digit.toString())}
                         >
                             {digit}
@@ -53,11 +51,11 @@ export const InputPhone = () => {
                         className={s.clearButton}
                         onClick={() => handleClear()}
                     >
-                        Стереть
+                        СТЕРЕТЬ
                     </button>
                     <button
-                        autoFocus
                         key={0}
+                        ref={digitRef}
                         className={s.button}
                         onClick={() => handleDigitClick('0')}
                     >

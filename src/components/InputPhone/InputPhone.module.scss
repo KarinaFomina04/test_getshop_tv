@@ -1,6 +1,7 @@
 .inputPhone {
+  text-align: center;
   input {
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
     font-size: 32px;
     font-weight: 700;
     line-height: 38px;
@@ -16,6 +17,7 @@
   .buttonContainer {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .button {
@@ -25,8 +27,13 @@
     border: 2px solid black;
     margin: 0 10px 10px 0;
     background-color: transparent;
+    font-weight: 700;
     color: black;
     cursor: pointer;
+    &:focus {
+      background-color: black;
+      color: white;
+    }
     &:active {
       background-color: black;
       color: white;
@@ -40,7 +47,12 @@
   border: 2px solid black;
   margin: 0 10px 10px 0;
   background-color: transparent;
+  font-weight: 700;
   gap: 10px;
+  &:focus {
+    background-color: black;
+    color: white;
+  }
   &:active {
     background-color: black;
     color: white;
@@ -48,11 +60,11 @@
 }
 
 .phone {
-  font-family: Roboto;
+  text-align: center;
+  font-family: Roboto, sans-serif;
   font-size: 32px;
   font-weight: 700;
   line-height: 38px;
   letter-spacing: 0em;
-  text-align: left;
 
 }
