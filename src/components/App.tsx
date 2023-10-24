@@ -1,9 +1,11 @@
-import {VideoBackground} from './VideoBackground/VideoBackground.tsx'
+import { NumberBanner } from './NumberBanner/NumberBanner.tsx'
+
 
 export const App = () => {
     return (
         <div>
-            <VideoBackground/>
+            {/*<VideoBackground/>*/}
+            <NumberBanner/>
         </div>
     );
 }

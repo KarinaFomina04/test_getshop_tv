@@ -1,0 +1,58 @@
+.inputPhone {
+  input {
+    font-family: Roboto;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    letter-spacing: 0em;
+    text-align: left;
+    background-color: #86D3F4;
+    border: none;
+    :active {
+      border: none;
+    }
+  }
+
+  .buttonContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .button {
+    width: 88px;
+    height: 52px;
+    padding: 12px 30px;
+    border: 2px solid black;
+    margin: 0 10px 10px 0;
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+    &:active {
+      background-color: black;
+      color: white;
+    }
+  }
+}
+
+.clearButton {
+  width: 186px;
+  height: 52px;
+  border: 2px solid black;
+  margin: 0 10px 10px 0;
+  background-color: transparent;
+  gap: 10px;
+  &:active {
+    background-color: black;
+    color: white;
+  }
+}
+
+.phone {
+  font-family: Roboto;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: left;
+
+}
