@@ -1,6 +1,5 @@
 {
   "name": "test_getshop_tv",
-  "proxy": "http://apilayer.net/api/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
