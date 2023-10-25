@@ -1,7 +1,7 @@
 import {FC} from 'react';
 import s from './InputPhone.module.scss';
 
-export const InputPhone:FC<any> = ({phoneNumber, setPhoneNumber, digitRef}) => {
+export const InputPhone:FC<any> = ({validationResult,phoneNumber, setPhoneNumber, digitRef}) => {
 
     const handleDigitClick = (digit: string) => {
         setPhoneNumber(phoneNumber.replace('_', digit))
@@ -18,7 +18,7 @@ export const InputPhone:FC<any> = ({phoneNumber, setPhoneNumber, digitRef}) => {
     }
 
     const detectKeyDown = (e: any) => {
-        if (+e.key) {
+        if ('0123456789'.includes(e.key)) {
             handleDigitClick(e.key)
         }
         if (e.key === 'Backspace') {
@@ -28,7 +28,7 @@ export const InputPhone:FC<any> = ({phoneNumber, setPhoneNumber, digitRef}) => {
 
     return (
             <div className={s.inputPhone} onKeyDown={detectKeyDown}>
-                <div className={s.phone}>
+                <div style={validationResult && !validationResult.valid ? {color: "red"} : {}} className={s.phone}>
                     {phoneNumber}
                 </div>
                 <div>
