@@ -5,7 +5,21 @@ import {CustomCheckbox} from '../Checkbox/Checkbox.tsx'
 import {CustomButton} from '../CustomButton/CustomButton.tsx'
 import axios from 'axios'
 
-export const NumberBanner:FC<any> = ({validationResult, setValidationResult, digitRef, agreementRef, submitRef}) => {
+type NumberBannerProps = {
+    validationResult: {success: boolean, valid: boolean} | null;
+    setValidationResult: (value: {success: boolean, valid: boolean} | null) => void;
+    digitRef: any;
+    agreementRef: any;
+    submitRef: any;
+}
+
+export const NumberBanner:FC<NumberBannerProps> = ({
+  validationResult,
+  setValidationResult,
+  digitRef,
+  agreementRef,
+  submitRef
+}) => {
 
     const [phoneNumber, setPhoneNumber] = useState('+7(___)___-__-__');
     const [isChecked, setChecked] = useState(false)
@@ -28,7 +42,7 @@ export const NumberBanner:FC<any> = ({validationResult, setValidationResult, dig
     };
 
     const hasValidationError = () => {
-        return validationResult && (!validationResult.valid || !validationResult.success)
+        return !!validationResult && (!validationResult.valid || !validationResult.success)
     }
 
     return (
@@ -44,18 +58,18 @@ export const NumberBanner:FC<any> = ({validationResult, setValidationResult, dig
                 digitRef={digitRef}
             />
             {validationResult && !validationResult.valid ?
-                <div style={{color:'red',padding: '33px 48px 13px'}}>
+                <div className={s.invalidNumber}>
                     НЕВЕРНО ВВЕДЕН НОМЕР
                 </div>
-                : <div style={{display: 'flex', padding: '33px 48px 13px'}}>
-                <div style={{padding: '6px 8px'}}>
+                : <div className={s.additionalInvalidNumber} >
+                <div className={s.customCheckbox} >
                     <CustomCheckbox isChecked={isChecked} setChecked={setChecked} agreementRef={agreementRef}/>
                 </div>
-                <div style={{padding: '10px', color: '#565656', fontSize: 14}}>
+                <div className={s.consent} >
                     Согласие на обработку<br/>персональных данных
                 </div>
             </div>}
-            <div style={{padding: '0 48px'}}>
+            <div className={s.customButton} >
                 <CustomButton
                     width={284}
                     height={52}

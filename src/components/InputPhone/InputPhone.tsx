@@ -2,7 +2,20 @@ import {FC} from 'react';
 import s from './InputPhone.module.scss';
 import {CustomButton} from "../CustomButton/CustomButton.tsx";
 
-export const InputPhone: FC<any> = ({validationResult, setValidationResult, phoneNumber, setPhoneNumber, digitRef}) => {
+type InputPhoneProps = {
+    validationResult: {success: boolean, valid: boolean} | null;
+    setValidationResult: (value: {success: boolean, valid: boolean} | null) => void;
+    phoneNumber: string
+    setPhoneNumber: (value:string)=>void
+    digitRef:any
+}
+export const InputPhone: FC<InputPhoneProps> = ({
+  validationResult,
+  setValidationResult,
+  phoneNumber,
+  setPhoneNumber,
+  digitRef
+}) => {
 
     const handleDigitClick = (digit: string) => {
         setPhoneNumber(phoneNumber.replace('_', digit))

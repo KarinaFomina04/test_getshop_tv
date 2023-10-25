@@ -14,5 +14,28 @@
   line-height: 30px;
   letter-spacing: 0em;
   text-align: center;
+}
 
+.invalidNumber {
+  color: red;
+  padding: 33px 48px 13px;
+}
+
+.additionalInvalidNumber {
+  display: flex;
+  padding: 33px 48px 13px;
+}
+
+.customCheckbox{
+  padding: 6px 8px;
+}
+
+.consent {
+  padding: 10px;
+  color: #565656;
+  fontSize: 14;
+}
+
+.customButton {
+  padding: 0 48px;
 }

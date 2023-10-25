@@ -16,7 +16,7 @@ export const VideoBackground = () => {
     const digitRef = useRef<HTMLButtonElement | null>(null)
     const agreementRef = useRef<HTMLInputElement| null>(null)
     const submitRef = useRef<HTMLButtonElement| null>(null)
-    const [validationResult, setValidationResult] = useState<{valid: boolean, success: boolean} | null>(null);
+    const [validationResult, setValidationResult] = useState<{success: boolean, valid: boolean } | null>(null);
 
     const checkForInactivity = () => {
         const expireTime = localStorage.getItem('expireTime')
@@ -135,7 +135,6 @@ export const VideoBackground = () => {
                         agreementRef={agreementRef}
                         digitRef={digitRef}
                         submitRef={submitRef}
-                        closeRef={closeRef}
                     /> }
                 </div>
             }
