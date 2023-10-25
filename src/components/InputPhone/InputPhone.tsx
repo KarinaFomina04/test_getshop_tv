@@ -1,5 +1,6 @@
 import {FC} from 'react';
 import s from './InputPhone.module.scss';
+import {CustomButton} from "../CustomButton/CustomButton.tsx";
 
 export const InputPhone: FC<any> = ({validationResult, setValidationResult, phoneNumber, setPhoneNumber, digitRef}) => {
 
@@ -15,6 +16,7 @@ export const InputPhone: FC<any> = ({validationResult, setValidationResult, phon
                 setPhoneNumber(phoneNumber.slice(0, lastDigitIndex) + "_" + phoneNumber.slice(lastDigitIndex + 1));
             }
         }
+        setValidationResult(null);
     }
 
     const detectKeyDown = (e: any) => {

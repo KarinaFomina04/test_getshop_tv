@@ -23,23 +23,7 @@
   }
 
   .button {
-    width: 88px;
-    height: 52px;
-    padding: 12px 30px;
-    border: 2px solid black;
     margin: 0 10px 10px 0;
-    background-color: transparent;
-    font-weight: 700;
-    color: black;
-    cursor: pointer;
-    &:focus {
-      background-color: black;
-      color: white;
-    }
-    &:active {
-      background-color: black;
-      color: white;
-    }
   }
 }
 
@@ -48,21 +32,9 @@
 }
 
 .clearButton {
-  width: 186px;
-  height: 52px;
-  border: 2px solid black;
   margin: 0 10px 10px 0;
-  background-color: transparent;
   font-weight: 700;
   gap: 10px;
-  &:focus {
-    background-color: black;
-    color: white;
-  }
-  &:active {
-    background-color: black;
-    color: white;
-  }
 }
 
 .phone {

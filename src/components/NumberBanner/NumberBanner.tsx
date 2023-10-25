@@ -1,16 +1,14 @@
 import s from './NumberBanner.module.scss'
-import {InputPhone} from "../InputPhone/InputPhone.tsx";
-import {FC, useRef, useState} from 'react'
-import {CustomCheckbox} from "../Checkbox/Checkbox.tsx";
-import {Button} from "../Button/Button.tsx";
-import axios from "axios";
+import {InputPhone} from '../InputPhone/InputPhone.tsx'
+import {FC, useState} from 'react'
+import {CustomCheckbox} from '../Checkbox/Checkbox.tsx'
+import {CustomButton} from '../CustomButton/CustomButton.tsx'
+import axios from 'axios'
 
-export const NumberBanner:FC<any> = ({digitRef, agreementRef}) => {
+export const NumberBanner:FC<any> = ({validationResult, setValidationResult, digitRef, agreementRef, submitRef}) => {
 
     const [phoneNumber, setPhoneNumber] = useState('+7(___)___-__-__');
     const [isChecked, setChecked] = useState(false)
-    const submitRef = useRef<HTMLInputElement| null>(null)
-    const [validationResult, setValidationResult] = useState<{valid: boolean} | null>(null);
 
     const convertPhoneNumberToNumber= (phoneNumberString: string) => {
         const numericString = phoneNumberString.replace(/\D/g, '');
@@ -28,31 +26,23 @@ export const NumberBanner:FC<any> = ({digitRef, agreementRef}) => {
             setValidationResult(null);
         }
     };
-    const detectKeyDown = (e: any) => {
-        if (e.key === 'ArrowDown' && agreementRef.current === document.activeElement) {
-            submitRef.current?.focus()
-        }
-        if (e.key === 'ArrowUp') {
-            const elem = document.activeElement
-            if (submitRef.current === elem) {
-                agreementRef.current?.focus()
-            } else if(agreementRef.current === elem) {
-                digitRef.current?.focus()
-            } else if(digitRef.current === elem){
-                (elem?.previousElementSibling?.previousElementSibling as HTMLButtonElement)?.focus()
-            } else {
-                (elem?.previousElementSibling?.previousElementSibling?.previousElementSibling as HTMLButtonElement)?.focus()
-            }
-        }
 
+    const hasValidationError = () => {
+        return validationResult && (!validationResult.valid || !validationResult.success)
+    }
 
-    };
     return (
-        <div className={s.container} onKeyDown={detectKeyDown}>
+        <div className={s.container}>
             <div className={s.inputNamber}>
                 Введите ваш номер<br/>мобильного телефона
             </div>
-            <InputPhone validationResult={validationResult} phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} digitRef={digitRef}/>
+            <InputPhone
+                validationResult={validationResult}
+                setValidationResult={setValidationResult}
+                phoneNumber={phoneNumber}
+                setPhoneNumber={setPhoneNumber}
+                digitRef={digitRef}
+            />
             {validationResult && !validationResult.valid ?
                 <div style={{color:'red',padding: '33px 48px 13px'}}>
                     НЕВЕРНО ВВЕДЕН НОМЕР
@@ -66,16 +56,15 @@ export const NumberBanner:FC<any> = ({digitRef, agreementRef}) => {
                 </div>
             </div>}
             <div style={{padding: '0 48px'}}>
-                <Button
-                    label={'ПОДТВЕРДИТЬ НОМЕР'}
-                    width="284px"
-                    height="52px"
-                    backgroundColor="black"
-                    color="#86D3F4"
+                <CustomButton
+                    width={284}
+                    height={52}
                     onClick={onSubmit}
-                    disabled={phoneNumber.includes('_') || !isChecked}
+                    disabled={phoneNumber.includes('_') || !isChecked || hasValidationError()}
                     buttonRef={submitRef}
-                />
+                >
+                    ПОДТВЕРДИТЬ НОМЕР
+                </CustomButton>
             </div>
         </div>
     )
