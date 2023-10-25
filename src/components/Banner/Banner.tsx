@@ -3,7 +3,7 @@ import { QrCodeFierst } from '../../assets/qrCode/QrCodeFierst.tsx'
 import { Button } from '../Button/Button.tsx'
 import {FC} from "react";
 
-export const Banner:FC<any> = ({onClickOk}) => {
+export const Banner:FC<any> = ({ onClickOk }) => {
     return (
         <div className={s.container}>
             <div className={s.blue}>

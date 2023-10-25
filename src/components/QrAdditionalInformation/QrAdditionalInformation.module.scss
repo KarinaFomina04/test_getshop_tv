@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  align-items: flex-end;
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+}
+
+
+.scanQr {
+  width: 194px;
+  height: 76px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: right;
+  color: white;
+  padding-right: 10px;
+}
+

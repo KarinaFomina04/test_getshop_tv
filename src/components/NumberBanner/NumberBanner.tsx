@@ -50,9 +50,7 @@ export const NumberBanner:FC<any> = ({digitRef, agreementRef}) => {
     return (
         <div className={s.container} onKeyDown={detectKeyDown}>
             <div className={s.inputNamber}>
-                Введите ваш номер
-                <br/>
-                мобильного телефона
+                Введите ваш номер<br/>мобильного телефона
             </div>
             <InputPhone validationResult={validationResult} phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} digitRef={digitRef}/>
             {validationResult && !validationResult.valid ?
