@@ -32,7 +32,7 @@ export const NumberBanner:FC<NumberBannerProps> = ({
     const onSubmit = async () => {
         try {
             const response = await axios.get(
-                `http://apilayer.net/api/validate?access_key=${import.meta.env.VITE_REACT_APP_NUMVERIFY_API_KEY}&number=${convertPhoneNumberToNumber(phoneNumber)}&country_code=RU&format=1`
+                `/api/validate?access_key=${import.meta.env.VITE_REACT_APP_NUMVERIFY_API_KEY}&number=${convertPhoneNumberToNumber(phoneNumber)}&country_code=RU&format=1`
             );
             setValidationResult(response.data);
         } catch (error) {

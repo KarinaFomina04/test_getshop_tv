@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/validate",
+      "destination": "http://apilayer.net/api/validate"
+    }
+  ]
+}
